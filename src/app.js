@@ -5,7 +5,25 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
+let Pronoun = ["the", "our"];
+let Adj = ["great", "big"];
+let Noun = ["jogger", "racoon"];
+let Exten = [".com", ".es"];
+
 window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+  let allDomains = [];
+
+  for (let pronoun of Pronoun) {
+    for (let adj of Adj) {
+      for (let noun of Noun) {
+        for (let exten of Exten) {
+          let domain = `${pronoun}${adj}${noun}${exten}`;
+          allDomains.push(domain);
+        }
+      }
+    }
+  }
+  for (let domain of allDomains) {
+    console.log(domain);
+  }
 };
