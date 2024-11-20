@@ -5,12 +5,11 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-let Pronoun = ["the", "our"];
-let Adj = ["great", "big"];
-let Noun = ["jogger", "racoon"];
-let Exten = [".com", ".es"];
-
 window.onload = function() {
+  let Pronoun = ["the", "our"];
+  let Adj = ["great", "big"];
+  let Noun = ["jogger", "racoon"];
+  let Exten = [".com", ".es"];
   let allDomains = [];
 
   for (let pronoun of Pronoun) {
