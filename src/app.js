@@ -5,30 +5,36 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-let Pronoun = ["the", "our"];
-let Adj = ["great", "big"];
-let Noun = ["jogger", "racoon"];
-let Exten = [".com", ".es"];
+const pronouns = ["the", "our"];
+const adjectives = ["great", "big"];
+const nouns = ["jogger", "racoon"];
+const extensions = [".com", ".es"];
 
 window.onload = function() {
-  let l_AllDomains = GetAllDomains(Pronoun, Adj, Noun, Exten);
-
-  for (let domain of l_AllDomains) {
-    console.log(domain);
-  }
+  const allDomains = generateDomains(pronouns, adjectives, nouns, extensions);
+  displayDomains(allDomains);
+  allDomains.forEach(domain => console.log(domain));
 };
 
-function GetAllDomains(_Pronoun, _Adj, _Noun, _Exten) {
-  let l_allDomains = [];
-  for (let pronoun of _Pronoun) {
-    for (let adj of _Adj) {
-      for (let noun of _Noun) {
-        for (let exten of _Exten) {
-          let domain = `${pronoun}${adj}${noun}${exten}`;
-          l_allDomains.push(domain);
+function generateDomains(pronouns, adjectives, nouns, extensions) {
+  const domains = [];
+  for (const pronoun of pronouns) {
+    for (const adjective of adjectives) {
+      for (const noun of nouns) {
+        for (const extension of extensions) {
+          domains.push(`${pronoun}${adjective}${noun}${extension}`);
         }
       }
     }
   }
-  return l_allDomains;
+  return domains;
+}
+
+function displayDomains(domains) {
+  const ul = document.getElementById("domain-list");
+  domains.forEach(domain => {
+    const li = document.createElement("li");
+    li.textContent = domain;
+    ul.appendChild(li);
+  });
 }
